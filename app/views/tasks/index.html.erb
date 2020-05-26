@@ -1,0 +1,14 @@
+<h1>My Tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <span>
+       <%= task.completed ? icon('fas', 'check-square') : icon('far', 'square') %>
+      </span>
+      <%= link_to task.title, task_path(task) %> - <%= link_to "Edit", edit_task_path(task) %> | <%= link_to task_path(task), method: :delete, data: {confirm: "Are you sure?" } do %> <%= icon('far', 'trash-alt') %><% end %>
+    </li>
+  <% end %>
+</ul>
+
+<p><%= link_to "+ Add new task", new_path %></p>

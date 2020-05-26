@@ -1,0 +1,9 @@
+
+<h2>Task: <%= @task.title %></h2>
+<p>Details: <%= @task.details %></p>
+<p>Completed: <%= @task.completed ? icon('fas', 'check-square') : icon('far', 'square') %></p>
+<p><%= link_to "Edit", edit_task_path(@task) %> | <%= link_to task_path(@task), method: :delete, data: {confirm: "Are you sure?" } do %> <%= icon('far', 'trash-alt') %>
+  <% end %>
+</p>
+
+<p><%= link_to "Back to list", tasks_path %></p>
